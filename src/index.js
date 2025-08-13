@@ -26,9 +26,7 @@ app.use(cors({
 }));
 
 const limiter = rateLimit({ windowMs: 60 * 1000, max: 120 });
-app.get("/", (req, res) => {
-  res.send({ message: "API is running 🚀" });
-});
+
 app.use('/api', limiter);
 
 app.use('/api', routes);
