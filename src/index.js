@@ -5,7 +5,6 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
-import cookieParser from 'cookie-parser';
 import { connectDB } from './config/db.js';
 import routes from './routes/index.js';
 
@@ -59,7 +58,6 @@ app.use(helmet());
 app.use(morgan('dev'));
 app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 /* --------- rate limit API only, skip preflight ----------- */
 const limiter = rateLimit({
